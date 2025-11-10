@@ -13,9 +13,20 @@
 	src: url("fonts/Bebas\ Neue.ttf");
 }
 
+@font-face {
+	font-family: "Bender";
+	src: url("fonts/Bender.woff");
+}
+
+/* @font-face {
+	font-family: "TW-Sung";
+	src: url("fonts/TW-Sung-98_1.ttf");
+} */
+
 * {
 	margin: 0;
 	padding: 0;
+	user-select: none;
 }
 
 html {
@@ -33,7 +44,7 @@ body {
 	aspect-ratio: 16 / 9;
 	width: min(100vw, calc(100vh * (16 / 9)));
 	border-style: dashed;
-	/* background-image: url("SBHS.jpeg"); */
+	background-image: url("images/SBHS.jpeg");
 	background-size: contain;
 	container-type: inline-size;
 }
@@ -48,7 +59,7 @@ body {
 .priestess {
 	height: 100%;
 	width: 100%;
-	background-image: url("priestess.png");
+	background-image: url("images/priestess.png");
 	background-repeat: no-repeat;
 	background-size: 205%;
 	background-position: 44% 38.75%;
@@ -62,7 +73,7 @@ body {
 	letter-spacing: 0.05cqw;
 	font-size: 28cqw;
 	text-align: center;
-	-webkit-text-stroke: 1px black;
+	-webkit-text-stroke: 1.5px black;
 	color: transparent;
 	opacity: 12%;
 	transform: translate(-50%, -51%);
@@ -126,4 +137,125 @@ h2 {
 	position: absolute;
 	transform: translate(0, -50%);
 	top: 60.9%;
+}
+
+.DM01 {
+	position: absolute;
+	top: calc(143 / 2160 * 100%);
+	left: calc(176.5 / 3840 * 100%);
+	transform: translate(-50%, -50%);
+	width: calc(168 / 3840 * 100cqw);
+	height: auto;
+}
+
+.barcode {
+	position: absolute;
+	top: 67.22%;
+	left: 4.805%;
+	transform: translate(-50%, -50%);
+	width: 4.7cqw;
+	height: auto;
+}
+
+.star_killers {
+	position: absolute;
+	top: 71.11%;
+	left: 4.05%;
+	transform: translate(-50%, -50%);
+	width: 3.15cqw;
+	height: auto;
+}
+
+.synchronized {
+	font-family: "Bender";
+	font-size: 1.01cqw;
+	letter-spacing: -0.01cqw;
+	position: absolute;
+	transform: translate(-50%, -50%);
+	top: calc(2010 / 2160 * 100%);
+	left: calc(247 / 3840 * 100%);
+	&::before {
+		content: "";
+		width: 0.71cqw;
+		aspect-ratio: 1 / 1;
+		background-color: black;
+		display: inline-block;
+		margin-right: 0.5cqw;
+	}
+}
+
+.tape {
+	position: absolute;
+	top: 75%;
+	left: 90.65%;
+	transform: translate(-50%, -50%);
+	width: 13cqw;
+	height: auto;
+	opacity: 40%;
+}
+
+.success {
+	position: absolute;
+	top: calc(1983 / 2160 * 100%);
+	left: calc(3304 / 3840 * 100%);
+	transform: translate(-50%, -50%);
+	width: 22.34cqw;
+	height: auto;
+}
+
+/* .SBHS_box {
+	position: absolute;
+	top: calc(100 / 2160 * 100%);
+	width: 100cqw;
+	justify-content: center;
+	display: flex;
+}
+
+.SBHS{
+	font-family: "TW-Sung";
+	font-size: 1.7cqw;
+	letter-spacing: 2.2cqw;
+	color: red;
+	&::before {
+		content: "";
+		margin-right: 1.2cqw;
+	};
+	&::after {
+		content: "";
+		margin-left: 1.2cqw;
+	};
+} */
+
+.stand {
+	position: absolute;
+	top: calc(119.5 / 2160 * 100%);
+	left: calc(1885 / 3840 * 100%);
+	transform: translate(-50%, -50%);
+	width: calc(1838 / 3840 * 100cqw);
+	height: auto;
+}
+
+
+.access-diamond {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%) rotate(45deg);
+	width: 4.75cqw;            /* 正方形边长（可按需调整） */
+	height: 4.75cqw;
+	border: 0.75cqw solid black; /* 边框厚度与颜色 */
+	box-sizing: border-box;
+	background: transparent;
+	opacity: 75%;
+}
+
+.access-label {
+	display: inline-block;
+	transform: translate(-50%, -50%) rotate(-45deg); /* 让文字保持水平 */
+	font-family: "Outfit ExtraBold";
+	color: black;
+	font-size: 0.85cqw;
+	position: absolute;
+	top: 46%;
+	left: 48%;
 }
