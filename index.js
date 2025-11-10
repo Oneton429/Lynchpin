@@ -1,8 +1,62 @@
 (function () {
+	const processValue = [0, 0.04, 0.12, 0.15, 0.24, 0.33, 0.34, 0.35, 0.35];
+	let TARGET_FRACTION = 0.35;
+	window.wallpaperPropertyListener = {
+		applyUserProperties: function (properties) {
+			if (properties.show_access_pulse) {
+				const access = document.querySelector('.access-animation');
+				if (access && properties.show_access_pulse.value) {
+					access.style.display = 'block';
+					access.classList.add('animate');
+				} else if (access) {
+					access.style.display = 'none';
+					access.classList.remove('animate');
+				}
+			}
+			if (properties.process_value) {
+				const number = document.querySelector('.process-value');
+				TARGET_FRACTION = properties.process_value.value / 100;
+				if (number && number.style.opacity === '1')
+					startProcessBarAnimation();
+			}
+			if (properties.auto_process_value) {
+				const number = document.querySelector('.process-value');
+				if (properties.auto_process_value.value) {
+					const today = Date.now();
+					const startDay = new Date(2023, 5, 22);
+					TARGET_FRACTION = processValue[Math.floor((today - startDay) / (1000 * 60 * 60 * 24)) % processValue.length];
+					if (number && number.style.opacity === '1')
+						startProcessBarAnimation();
+				} else {
+					TARGET_FRACTION = properties.process_value ? properties.process_value.value / 100 : 0.35;
+					if (number && number.style.opacity === '1')
+						startProcessBarAnimation();
+				}
+			}
+			if (properties.noise_volume) {
+				const audio = document.querySelector('audio');
+				if (audio) {
+					audio.volume = properties.noise_volume.value / 100;
+				}
+			}
+			if (properties.noise_play) {
+				const audio = document.querySelector('audio');
+				if (audio) {
+					if (properties.noise_play.value) {
+						audio.play();
+					} else {
+						audio.pause();
+					}
+				}
+			}
+		},
+	};
 
 	function initCycleAnimation() {
 		const circle = document.querySelector('.cycle-circle');
-		if (!circle) return;
+		if (!circle) {
+			return;
+		}
 
 		const r = circle.r.baseVal.value;
 		const circumference = 2 * Math.PI * r;
@@ -16,7 +70,6 @@
 			setTimeout(() => {
 				const mask = document.querySelector('.process-bar-mask');
 				if (mask) {
-					// 在 mask 动画结束后再等 300ms 启动 process-bar 动画
 					const onMaskEnd = () => {
 						mask.removeEventListener('animationend', onMaskEnd);
 						startProcessBarAnimation();
@@ -27,10 +80,7 @@
 			}, 2000);
 		});
 	}
-	const access = document.querySelector('.access-animation');
-	if (access) {
-		access.classList.add('animate');
-	}
+
 	if (document.readyState === 'loading') {
 		document.addEventListener('DOMContentLoaded', () => {
 			initCycleAnimation();
@@ -39,14 +89,11 @@
 		initCycleAnimation();
 	}
 
-	/* ---------------- process-bar animation & value display ---------------- */
 	function startProcessBarAnimation() {
 		const container = document.getElementById('cycle');
 		const bar = document.querySelector('.process-bar');
-		const number = document.querySelector('.process-value');
-		if (!container || !bar || !number) return;
+		if (!container || !bar) return;
 
-		// 创建或获取显示数值的元素
 		let display = document.querySelector('.process-value');
 		if (!display) {
 			display = document.createElement('div');
@@ -54,34 +101,43 @@
 			container.appendChild(display);
 		}
 
-		const processValue = [0, 0.04, 0.12, 0.15, 0.24, 0.33, 0.34, 0.35, 0.35];
-		const today = Date.now();
-		const startDay = new Date(2023, 5, 22);
-		const TARGET_FRACTION = processValue[Math.floor((today - startDay) / (1000 * 60 * 60 * 24)) % processValue.length];
-		const targetPx = Math.round(container.clientHeight * TARGET_FRACTION);
-		const DURATION = 1000; // 动画时长（ms），可调整或变为变量
+		const barTargetHeight = TARGET_FRACTION * 100;
+		const DURATION = 1000;
 
-		// 动画：从 0 -> targetPx，用 requestAnimationFrame 精确更新并显示数值
-		bar.style.height = '0px';
 		let start = null;
+		const barStartHeight = bar.style.height ? parseInt(bar.style.height) : 0;
+		const displayStartTop = display.style.top ? parseInt(display.style.top) : 100;
+		let displayTargetTop;
+		const diamondDangerArea = 4.75 * Math.SQRT2 / 2 * (container.clientWidth / container.clientHeight) / 100;
+		const displayDangerArea = 2.5 * (container.clientWidth / container.clientHeight) / 100;
+		if (0.5 - diamondDangerArea - displayDangerArea < TARGET_FRACTION && TARGET_FRACTION < 0.5 + diamondDangerArea) {
+			displayTargetTop = (0.5 - diamondDangerArea) * 100;
+		} else if (TARGET_FRACTION >= 0.95) {
+			displayTargetTop = 5;
+		} else {
+			displayTargetTop = (1 - TARGET_FRACTION) * 100;
+		}
+
 		function step(ts) {
-			if (!start) start = ts;
+			if (!start) {
+				start = ts;
+			}
 			const elapsed = ts - start;
 			const t = Math.min(1, elapsed / DURATION);
 			const ease = 1 - Math.pow(1 - t, 3);;
-			const current = Math.round(targetPx * ease);
-			bar.style.height = current + 'px';
-			const percent = Math.round((current / container.clientHeight) * 100);
-			display.textContent = percent + '%';
-			display.style.top = (container.clientHeight - current) + 'px';
-			if (t < 1) requestAnimationFrame(step);
-			else {
-				// 确保最终值精确到目标
-				bar.style.height = targetPx + 'px';
+			const current = barStartHeight + (barTargetHeight - barStartHeight) * ease;
+			bar.style.height = current + '%';
+			display.textContent = Math.round(current) + '%';
+			display.style.top = (displayStartTop + (displayTargetTop - displayStartTop) * ease) + '%';
+
+			if (t < 1) {
+				requestAnimationFrame(step);
+			} else {
+				bar.style.height = barTargetHeight + '%';
 				display.textContent = Math.round(TARGET_FRACTION * 100) + '%';
 			}
 		}
-		number.style.opacity = '1';
+		display.style.opacity = '1';
 		requestAnimationFrame(step);
 	}
 })();

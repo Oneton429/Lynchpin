@@ -1,17 +1,72 @@
 {
+	"contentrating" : "Everyone",
+	"description" : "Stand By Her Side",
 	"file" : "index.html",
-	"general" :
+	"general" : 
 	{
-		"properties" :
+		"properties" : 
 		{
-			"schemecolor" :
+			"auto_process_value" : 
+			{
+				"index" : 0,
+				"order" : 100,
+				"text" : "自动推算进度条",
+				"type" : "bool",
+				"value" : true
+			},
+			"noise_play" : 
+			{
+				"index" : 3,
+				"order" : 103,
+				"text" : "播放背景声",
+				"type" : "bool",
+				"value" : true
+			},
+			"noise_volume" : 
+			{
+				"condition" : "noise_play.value == true",
+				"fraction" : false,
+				"index" : 4,
+				"max" : 100,
+				"min" : 0,
+				"order" : 104,
+				"text" : "背景声音量",
+				"type" : "slider",
+				"value" : 50
+			},
+			"process_value" : 
+			{
+				"condition" : "auto_process_value.value == false",
+				"fraction" : false,
+				"index" : 1,
+				"max" : 100,
+				"min" : 0,
+				"order" : 101,
+				"text" : "进度条数值",
+				"type" : "slider",
+				"value" : 35
+			},
+			"schemecolor" : 
 			{
 				"order" : 0,
 				"text" : "ui_browse_properties_scheme_color",
 				"type" : "color",
 				"value" : "0 0 0"
+			},
+			"show_access_pulse" : 
+			{
+				"index" : 2,
+				"order" : 102,
+				"text" : "ACCESS动效",
+				"type" : "bool",
+				"value" : true
 			}
 		}
 	},
-	"title" : "Stand By Her Side"
+	"preview" : "preview.jpeg",
+	"ratingsex" : "none",
+	"tags" : [ "Anime" ],
+	"title" : "Lynchpin | 明日方舟 | PV4解谜 | 普瑞塞斯",
+	"type" : "web",
+	"version" : 0
 }

@@ -36,13 +36,15 @@ html {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background-color: white;
+	background-color: #d1d1d1;
 }
 
 body {
 	background-color: #c6c6c6;
-	aspect-ratio: 16 / 9;
-	width: min(100vw, calc(100vh * (16 / 9)));
+	width: 100cqw;
+	height: 100cqh;
+	/* aspect-ratio: 16 / 9;
+	width: min(100vw, calc(100vh * (16 / 9))); */
 	/* border-style: dashed; */
 	/* background-image: url("preview.jpeg"); */
 	background-size: contain;
@@ -50,10 +52,14 @@ body {
 }
 
 .frame {
-	aspect-ratio: 16 / 9;
+	/* aspect-ratio: 16 / 9; */
 	width: 100cqw;
+	height: 100cqh;
 	position: absolute;
 	overflow: hidden;
+	transform: translate(-50%, -50%);
+	left: 50%;
+	top: 50%;
 }
 
 .priestess {
@@ -108,8 +114,8 @@ body {
 
 
 .cycle-svg {
-	height: 100%;
-	width: auto;
+	height: auto;
+	width: 56.25cqw;
 	overflow: visible;
 	position: absolute;
 	transform: translate(-50%, -50%) rotate(-90deg);
@@ -156,8 +162,7 @@ body {
 }
 
 .process-bar {
-	/* 初始高度为 0，由 JS 动画到目标高度 */
-	height: 0;
+	height: 0%;
 	width: 0.2cqw;
 	position: absolute;
 	transform: translate(-50%, -100%);
@@ -166,7 +171,6 @@ body {
 	background-color: black;
 }
 
-/* 显示 process-bar 高度的数字 */
 .process-value {
 	position: absolute;
 	left: calc(50% + 1.2cqw);
@@ -323,9 +327,9 @@ h2 {
 	left: 50%;
 	top: 50%;
 	transform: translate(-50%, -50%) rotate(45deg);
-	width: 4.75cqw;            /* 正方形边长（可按需调整） */
+	width: 4.75cqw;
 	height: 4.75cqw;
-	border: 0.75cqw solid black; /* 边框厚度与颜色 */
+	border: 0.75cqw solid black;
 	box-sizing: border-box;
 	background: transparent;
 	opacity: 75%;
@@ -333,7 +337,7 @@ h2 {
 
 .access-label {
 	display: inline-block;
-	transform: translate(-50%, -50%) rotate(-45deg); /* 让文字保持水平 */
+	transform: translate(-50%, -50%) rotate(-45deg);
 	font-family: "Outfit ExtraBold";
 	color: black;
 	font-size: 0.85cqw;
@@ -347,9 +351,9 @@ h2 {
 	left: 50%;
 	top: 50%;
 	transform: translate(-50%, -50%) rotate(45deg);
-	width: 4.75cqw;            /* 正方形边长（可按需调整） */
+	width: 4.75cqw;
 	height: 4.75cqw;
-	border: 0.25cqw solid black; /* 边框厚度与颜色 */
+	border: 0.25cqw solid black;
 	box-sizing: border-box;
 	background: transparent;
 	opacity: 75%;
@@ -372,4 +376,8 @@ h2 {
 
 .access-animation.animate {
 	animation: access-pulse 2000ms ease infinite;
+}
+
+audio {
+	display: none;
 }
