@@ -191,6 +191,10 @@ body {
 	opacity: 0;
 }
 
+.shadow {
+	text-shadow: 0 0.2cqw 0.2cqw rgba(0, 0, 0, 0.15);
+}
+
 h1 {
 	font-family: "Outfit Black";
 	font-weight:600;
