@@ -44,7 +44,7 @@ body {
 	aspect-ratio: 16 / 9;
 	width: min(100vw, calc(100vh * (16 / 9)));
 	border-style: dashed;
-	background-image: url("images/SBHS.jpeg");
+	/* background-image: url("images/SBHS.jpeg"); */
 	background-size: contain;
 	container-type: inline-size;
 }
@@ -82,7 +82,7 @@ body {
 	position: absolute;
 }
 
-.lynchpin_reflect {
+.lynchpin-reflect {
 	font-family: "Bebas Neue";
 	font-kerning: none;
 	letter-spacing: 0.05cqw;
@@ -99,18 +99,96 @@ body {
 	-webkit-text-fill-color: transparent;
 }
 
-.lynchpin_img {
+.lynchpin-img {
 	opacity: 10%;
 	width: 100%;
 	height: auto;
 	position: absolute;
 }
 
-.overlay {
-	width: 100%;
+
+.cycle-svg {
 	height: 100%;
+	width: auto;
+	overflow: visible;
 	position: absolute;
-	opacity: 100%;
+	transform: translate(-50%, -50%) rotate(-90deg);
+	left: 50%;
+	top: 50%;
+	opacity: 25%;
+}
+
+.cycle-circle {
+	stroke: black;
+	stroke-width: 0.3;
+	stroke-linecap: butt;
+	fill: none;
+}
+
+@keyframes cycle-draw {
+	from { stroke-dashoffset: var(--dashstart); }
+	to   { stroke-dashoffset: 0; }
+}
+
+.cycle-circle.animate {
+	animation: cycle-draw 1800ms ease forwards;
+}
+
+.process-bar-mask {
+	height: 100%;
+	width: 0.2cqw;
+	position: absolute;
+	transform: translate(-50%, -50%);
+	left: 50%;
+	top: 50%;
+	background-color: black;
+	/* 初始隐藏，随后由动画淡入到 20% 不透明度 */
+	opacity: 0;
+}
+
+@keyframes mask-fade-in {
+	from { opacity: 0; }
+	to   { opacity: 0.2; }
+}
+
+.process-bar-mask.fade {
+	animation: mask-fade-in 1000ms ease forwards;
+}
+
+.process-bar {
+	/* 初始高度为 0，由 JS 动画到目标高度 */
+	height: 0;
+	width: 0.2cqw;
+	position: absolute;
+	transform: translate(-50%, -100%);
+	left: 50%;
+	top: 100%;
+	background-color: black;
+}
+
+/* 显示 process-bar 高度的数字 */
+.process-value {
+	position: absolute;
+	left: calc(50% + 1.2cqw);
+	top: 50%;
+	transform: translateY(-50%);
+	font-family: "Outfit ExtraBold", sans-serif;
+	font-size: 1.1cqw;
+	color: black;
+	z-index: 20;
+	pointer-events: none;
+}
+
+.process-value {
+	font-family: "Bender";
+	font-weight: 10;
+	font-size: 1.7cqw;
+	transform: translate(-50%, -100%);
+	position: absolute;
+	left: 50.1%;
+	top: 100%;
+	padding-bottom: 0.8%;
+	opacity: 0;
 }
 
 h1 {
@@ -157,7 +235,7 @@ h2 {
 	height: auto;
 }
 
-.star_killers {
+.star-killers {
 	position: absolute;
 	top: 71.11%;
 	left: 4.05%;
