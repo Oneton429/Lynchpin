@@ -43,8 +43,8 @@ body {
 	background-color: #c6c6c6;
 	aspect-ratio: 16 / 9;
 	width: min(100vw, calc(100vh * (16 / 9)));
-	border-style: dashed;
-	/* background-image: url("images/SBHS.jpeg"); */
+	/* border-style: dashed; */
+	/* background-image: url("preview.jpeg"); */
 	background-size: contain;
 	container-type: inline-size;
 }
@@ -340,4 +340,36 @@ h2 {
 	position: absolute;
 	top: 46%;
 	left: 48%;
+}
+
+.access-animation {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%) rotate(45deg);
+	width: 4.75cqw;            /* 正方形边长（可按需调整） */
+	height: 4.75cqw;
+	border: 0.25cqw solid black; /* 边框厚度与颜色 */
+	box-sizing: border-box;
+	background: transparent;
+	opacity: 75%;
+}
+
+@keyframes access-pulse {
+	0% {
+		transform: translate(-50%, -50%) rotate(45deg) scale(1);
+		opacity: 0.75;
+	}
+	50% {
+		transform: translate(-50%, -50%) rotate(45deg) scale(1.5);
+		opacity: 0;
+	}
+	100% {
+		transform: translate(-50%, -50%) rotate(45deg) scale(1.5);
+		opacity: 0;
+	}
+}
+
+.access-animation.animate {
+	animation: access-pulse 2000ms ease infinite;
 }

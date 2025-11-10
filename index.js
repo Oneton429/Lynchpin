@@ -1,22 +1,16 @@
 (function () {
 
-	// 初始化 cycle 圆动画：计算圆周并触发 CSS 动画（逆时针，从顶端开始）
 	function initCycleAnimation() {
 		const circle = document.querySelector('.cycle-circle');
 		if (!circle) return;
 
-		// r 在 viewBox 单位下
 		const r = circle.r.baseVal.value;
 		const circumference = 2 * Math.PI * r;
 
-		// 将 dasharray 设置为周长；为了实现逆时针效果，我们从 -circumference 到 0
 		circle.style.strokeDasharray = String(circumference);
-		// 设置一个 CSS 变量供关键帧使用（起始为负值）
 		circle.style.setProperty('--dashstart', String(-circumference));
-		// 立刻设置初始偏移（负值）以避免在渲染前可见
 		circle.style.strokeDashoffset = String(-circumference);
 
-		// 强制重绘后添加动画类以触发动画
 		requestAnimationFrame(() => {
 			circle.classList.add('animate');
 			setTimeout(() => {
@@ -33,8 +27,10 @@
 			}, 2000);
 		});
 	}
-
-	// 初始执行
+	const access = document.querySelector('.access-animation');
+	if (access) {
+		access.classList.add('animate');
+	}
 	if (document.readyState === 'loading') {
 		document.addEventListener('DOMContentLoaded', () => {
 			initCycleAnimation();
