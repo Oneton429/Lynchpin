@@ -2,11 +2,11 @@
 	"contentrating" : "Everyone",
 	"description" : "Stand By Her Side",
 	"file" : "index.html",
-	"general" : 
+	"general" :
 	{
-		"properties" : 
+		"properties" :
 		{
-			"auto_process_value" : 
+			"auto_process_value" :
 			{
 				"index" : 0,
 				"order" : 100,
@@ -14,7 +14,7 @@
 				"type" : "bool",
 				"value" : true
 			},
-			"contribute" : 
+			"contribute" :
 			{
 				"index" : 10,
 				"order" : 110,
@@ -22,7 +22,7 @@
 				"type" : "bool",
 				"value" : true
 			},
-			"credit" : 
+			"credit" :
 			{
 				"index" : 8,
 				"order" : 108,
@@ -30,7 +30,7 @@
 				"type" : "bool",
 				"value" : true
 			},
-			"html_author" : 
+			"html_author" :
 			{
 				"index" : 7,
 				"order" : 107,
@@ -38,7 +38,7 @@
 				"type" : "bool",
 				"value" : true
 			},
-			"license" : 
+			"license" :
 			{
 				"index" : 9,
 				"order" : 109,
@@ -46,7 +46,7 @@
 				"type" : "bool",
 				"value" : true
 			},
-			"newproperty" : 
+			"newproperty" :
 			{
 				"index" : 5,
 				"order" : 105,
@@ -54,7 +54,7 @@
 				"type" : "group",
 				"value" : ""
 			},
-			"noise_play" : 
+			"noise_play" :
 			{
 				"index" : 3,
 				"order" : 103,
@@ -62,7 +62,7 @@
 				"type" : "bool",
 				"value" : true
 			},
-			"noise_volume" : 
+			"noise_volume" :
 			{
 				"condition" : "noise_play.value == true",
 				"fraction" : false,
@@ -74,7 +74,7 @@
 				"type" : "slider",
 				"value" : 50
 			},
-			"original_writer" : 
+			"original_author" :
 			{
 				"index" : 6,
 				"order" : 106,
@@ -82,7 +82,7 @@
 				"type" : "bool",
 				"value" : true
 			},
-			"process_value" : 
+			"process_value" :
 			{
 				"condition" : "auto_process_value.value == false",
 				"fraction" : false,
@@ -94,14 +94,14 @@
 				"type" : "slider",
 				"value" : 35
 			},
-			"schemecolor" : 
+			"schemecolor" :
 			{
 				"order" : 0,
 				"text" : "ui_browse_properties_scheme_color",
 				"type" : "color",
 				"value" : "0 0 0"
 			},
-			"show_access_pulse" : 
+			"show_access_pulse" :
 			{
 				"index" : 2,
 				"order" : 102,
