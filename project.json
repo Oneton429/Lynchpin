@@ -14,6 +14,46 @@
 				"type" : "bool",
 				"value" : true
 			},
+			"contribute" : 
+			{
+				"index" : 10,
+				"order" : 110,
+				"text" : "贡献代码：<a href='https://github.com/Oneton429/Lynchpin'>点击跳转</a>",
+				"type" : "bool",
+				"value" : true
+			},
+			"credit" : 
+			{
+				"index" : 8,
+				"order" : 108,
+				"text" : "素材来源于：<a href='https://www.hypergryph.com/'>鹰角网络</a>",
+				"type" : "bool",
+				"value" : true
+			},
+			"html_author" : 
+			{
+				"index" : 7,
+				"order" : 107,
+				"text" : "网页版本作者：<a href='https://github.com/Oneton429'>云吞</a>",
+				"type" : "bool",
+				"value" : true
+			},
+			"license" : 
+			{
+				"index" : 9,
+				"order" : 109,
+				"text" : "许可证：<a href='https://creativecommons.org/licenses/by-nc-sa/4.0/'>CC BY-NC-SA 4.0</a>",
+				"type" : "bool",
+				"value" : true
+			},
+			"newproperty" : 
+			{
+				"index" : 5,
+				"order" : 105,
+				"text" : "作者信息",
+				"type" : "group",
+				"value" : ""
+			},
 			"noise_play" : 
 			{
 				"index" : 3,
@@ -33,6 +73,14 @@
 				"text" : "背景声音量",
 				"type" : "slider",
 				"value" : 50
+			},
+			"original_writer" : 
+			{
+				"index" : 6,
+				"order" : 106,
+				"text" : "原作者：<a href='https://github.com/SherkeyXD'>SherkeyXD</a>",
+				"type" : "bool",
+				"value" : true
 			},
 			"process_value" : 
 			{
