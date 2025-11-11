@@ -105,6 +105,50 @@
 		initCycleAnimation();
 	}
 
+	document.addEventListener('click', () => {
+		if (window.wallpaperPropertyListener && window.wallpaperPropertyListener.applyUserProperties) {
+			window.wallpaperPropertyListener.applyUserProperties({
+				"noise_play": {
+					"index": 3,
+					"key": "noise_play",
+					"order": 103,
+					"text": "播放背景声",
+					"type": "bool",
+					"value": true
+				},
+				"noise_volume": {
+					"condition": "noise_play.value == true",
+					"fraction": false,
+					"index": 4,
+					"key": "noise_volume",
+					"max": 100,
+					"min": 0,
+					"order": 104,
+					"text": "背景声音量",
+					"type": "slider",
+					"value": 50
+				},
+				"show_access_pulse": {
+					"index": 2,
+					"key": "show_access_pulse",
+					"order": 102,
+					"text": "ACCESS动效",
+					"type": "bool",
+					"value": true
+				},
+				"auto_process_value": {
+					"index": 0,
+					"key": "auto_process_value",
+					"order": 100,
+					"text": "自动推算进度条",
+					"type": "bool",
+					"value": true
+				}
+			});
+			console.log('Click: Apply properties request sent.');
+		}
+	});
+
 	function startProcessBarAnimation() {
 		const container = document.getElementById('cycle');
 		const bar = document.querySelector('.process-bar');
