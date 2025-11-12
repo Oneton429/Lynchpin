@@ -1,6 +1,7 @@
 (function () {
 	const processValue = [0, 0.04, 0.12, 0.15, 0.24, 0.33, 0.34, 0.35, 0.35];
 	let TARGET_FRACTION = 0.35;
+	let progressInterval = null;
 	window.wallpaperPropertyListener = {
 		applyUserProperties: function (properties) {
 			if (properties.show_access_pulse) {
@@ -23,14 +24,29 @@
 				const number = document.querySelector('.process-value');
 				if (properties.auto_process_value.value) {
 					const today = Date.now();
-					const startDay = new Date(2023, 5, 22);
+					const startDay = 1762876800000;
 					TARGET_FRACTION = processValue[Math.floor((today - startDay) / (1000 * 60 * 60 * 24)) % processValue.length];
 					if (number && number.style.opacity === '1')
 						startProcessBarAnimation();
+					progressInterval = setInterval(() => {
+						const today = Date.now();
+						const startDay = 1762876800000;
+						const newProgress = processValue[Math.floor((today - startDay) / (1000 * 60 * 60 * 24)) % processValue.length];
+						if (newProgress !== TARGET_FRACTION) {
+							TARGET_FRACTION = newProgress;
+							const number = document.querySelector('.process-value');
+							if (number && number.style.opacity === '1')
+								startProcessBarAnimation();
+						}
+					}, 60000);
 				} else {
 					TARGET_FRACTION = properties.process_value ? properties.process_value.value / 100 : 0.35;
 					if (number && number.style.opacity === '1')
 						startProcessBarAnimation();
+					if (progressInterval) {
+						clearInterval(progressInterval);
+						progressInterval = null;
+					}
 				}
 			}
 			if (properties.noise_volume) {
@@ -135,6 +151,7 @@
 			} else {
 				bar.style.height = barTargetHeight + '%';
 				display.textContent = Math.round(TARGET_FRACTION * 100) + '%';
+				console.log(`Process bar changed to ${TARGET_FRACTION * 100}%.`);
 			}
 		}
 		display.style.opacity = '1';
