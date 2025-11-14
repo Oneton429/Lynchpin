@@ -2,7 +2,7 @@
 
 明日方舟 PV4解谜 纪念向海报壁纸 网页版本
 
-![Preview](preview.jpeg "Preview")
+[通过网页预览](http://oneton.cf/Lynchpin/) | [在创意工坊中查看](https://steamcommunity.com/sharedfiles/filedetails/?id=3605338015) | [在Steam应用程序中打开](steam://url/CommunityFilePage/3605338015)
 
 ## 支持自定义：
 

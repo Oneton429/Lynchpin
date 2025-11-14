@@ -1,6 +1,6 @@
 {
 	"contentrating" : "Everyone",
-	"description" : "Stand By Her Side",
+	"description" : "明日方舟 PV4解谜 纪念向海报壁纸 网页版本\nhttps://github.com/Oneton429/Lynchpin\n\n支持自定义：\n      自动计算今日Lynchpin进度\n      手动指定Lynchpin进度\n      开关ACCESS动画\n      Lynchpin底噪播放暂停及音量调节\n\n许可证：CC BY-NC-SA 4.0\n原作者：SherkeyXD\n网页版本作者：云吞\n素材来源及致谢：鹰角网络\n\n欢迎您贡献本项目。\n\nStand By Her Side",
 	"file" : "index.html",
 	"general" :
 	{
@@ -111,10 +111,14 @@
 			}
 		}
 	},
-	"preview" : "preview.jpeg",
+	"preview" : "preview.jpg",
 	"ratingsex" : "none",
+	"ratingviolence" : "none",
 	"tags" : [ "Anime" ],
 	"title" : "Lynchpin | 明日方舟 | PV4解谜 | 普瑞塞斯",
 	"type" : "web",
-	"version" : 0
+	"version" : 2,
+	"visibility" : "public",
+	"workshopid" : "3605338015",
+	"workshopurl" : "steam://url/CommunityFilePage/3605338015"
 }
