@@ -1,12 +1,12 @@
 {
 	"contentrating" : "Everyone",
-	"description" : "Stand By Her Side",
+	"description" : "明日方舟 PV4解谜 纪念向海报壁纸 网页版本\nhttps://github.com/Oneton429/Lynchpin\n\n支持自定义：\n      自动计算今日Lynchpin进度\n      手动指定Lynchpin进度\n      开关ACCESS动画\n      Lynchpin底噪播放暂停及音量调节\n\n许可证：CC BY-NC-SA 4.0\n原作者：SherkeyXD\n网页版本作者：云吞\n素材来源及致谢：鹰角网络\n\n欢迎您贡献本项目。\n\nStand By Her Side",
 	"file" : "index.html",
-	"general" :
+	"general" : 
 	{
-		"properties" :
+		"properties" : 
 		{
-			"auto_process_value" :
+			"auto_process_value" : 
 			{
 				"index" : 0,
 				"order" : 100,
@@ -14,7 +14,7 @@
 				"type" : "bool",
 				"value" : true
 			},
-			"contribute" :
+			"contribute" : 
 			{
 				"index" : 10,
 				"order" : 110,
@@ -22,7 +22,7 @@
 				"type" : "bool",
 				"value" : true
 			},
-			"credit" :
+			"credit" : 
 			{
 				"index" : 8,
 				"order" : 108,
@@ -30,7 +30,7 @@
 				"type" : "bool",
 				"value" : true
 			},
-			"html_author" :
+			"html_author" : 
 			{
 				"index" : 7,
 				"order" : 107,
@@ -38,7 +38,7 @@
 				"type" : "bool",
 				"value" : true
 			},
-			"license" :
+			"license" : 
 			{
 				"index" : 9,
 				"order" : 109,
@@ -46,7 +46,7 @@
 				"type" : "bool",
 				"value" : true
 			},
-			"newproperty" :
+			"newproperty" : 
 			{
 				"index" : 5,
 				"order" : 105,
@@ -54,7 +54,7 @@
 				"type" : "group",
 				"value" : ""
 			},
-			"noise_play" :
+			"noise_play" : 
 			{
 				"index" : 3,
 				"order" : 103,
@@ -62,7 +62,7 @@
 				"type" : "bool",
 				"value" : true
 			},
-			"noise_volume" :
+			"noise_volume" : 
 			{
 				"condition" : "noise_play.value == true",
 				"fraction" : false,
@@ -74,7 +74,7 @@
 				"type" : "slider",
 				"value" : 50
 			},
-			"original_author" :
+			"original_author" : 
 			{
 				"index" : 6,
 				"order" : 106,
@@ -82,7 +82,7 @@
 				"type" : "bool",
 				"value" : true
 			},
-			"process_value" :
+			"process_value" : 
 			{
 				"condition" : "auto_process_value.value == false",
 				"fraction" : false,
@@ -94,14 +94,14 @@
 				"type" : "slider",
 				"value" : 35
 			},
-			"schemecolor" :
+			"schemecolor" : 
 			{
 				"order" : 0,
 				"text" : "ui_browse_properties_scheme_color",
 				"type" : "color",
 				"value" : "0 0 0"
 			},
-			"show_access_pulse" :
+			"show_access_pulse" : 
 			{
 				"index" : 2,
 				"order" : 102,
@@ -111,10 +111,14 @@
 			}
 		}
 	},
-	"preview" : "preview.jpeg",
+	"preview" : "preview.jpg",
 	"ratingsex" : "none",
+	"ratingviolence" : "none",
 	"tags" : [ "Anime" ],
 	"title" : "Lynchpin | 明日方舟 | PV4解谜 | 普瑞塞斯",
 	"type" : "web",
-	"version" : 0
+	"version" : 2,
+	"visibility" : "public",
+	"workshopid" : "3605338015",
+	"workshopurl" : "steam://url/CommunityFilePage/3605338015"
 }
